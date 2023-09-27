@@ -11,17 +11,24 @@ function App() {
     setCount(count_plus);
   }
 
+  let click_reset = () => {
+    setCount(0);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <div>
-          {count}
+      <div className="container">
+        <div className='container-box'>
+          <div>
+            {count}
+          </div>
+          <p>
+            PUSH THE BUTTON
+          </p>
+          <div className='Button-Click' onClick={click_counter}>CLICK!</div>
+          <div className='Button-Click' onClick={click_reset}>RESET</div>
         </div>
-        <p>
-          PUSH THE BUTTON
-        </p>
-        <div className='Button-Click' onClick={click_counter}>CLICK!</div>
-      </header>
+      </div>
     </div>
   );
 }
