@@ -1,7 +1,40 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import './App.css';
+
+function CountSpace(props) {
+  const [gauge, setGauge] = useState("");
+
+  let gauge_plus = "";
+  let gauge_changer = () => {
+    let cipher_number = String(props.value).length;
+    let cipher = String(props.value)[cipher_number - 1];
+
+    if (cipher === "0" && props.value !== 0) {
+      gauge_plus = "■■■■■■■■■■";
+    } else {
+      for (let i = 0; i < Number(cipher); i++) {
+
+        gauge_plus += "■";
+      }
+    }
+  }
+
+  useEffect(() => {
+    setGauge(gauge_plus);
+  });
+
+
+  return (
+    <div onChange={gauge_changer()}>
+      <ul className='gauge-wrap'>
+        {gauge}
+      </ul>
+      {props.value}
+    </div>
+  );
+}
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,14 +52,12 @@ function App() {
     <div className="App">
       <div className="container">
         <div className='container-box'>
-          <div>
-            {count}
-          </div>
+          <CountSpace value={count}></CountSpace>
           <p>
             PUSH THE BUTTON
           </p>
-          <div className='Button-Click' onClick={click_counter}>CLICK!</div>
-          <div className='Button-Click' onClick={click_reset}>RESET</div>
+          <div className='button-click' onClick={click_counter}>CLICK!</div>
+          <div className='button-click' onClick={click_reset}>RESET</div>
         </div>
       </div>
     </div>
