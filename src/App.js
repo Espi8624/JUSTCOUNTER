@@ -1,35 +1,25 @@
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import './App.css';
 
 function CountSpace(props) {
-  const [gauge, setGauge] = useState("");
-
-  let gauge_plus = "";
-  let gauge_changer = () => {
-    let cipher_number = String(props.value).length;
-    let cipher = String(props.value)[cipher_number - 1];
-
-    if (cipher === "0" && props.value !== 0) {
-      gauge_plus = "■■■■■■■■■■";
-    } else {
-      for (let i = 0; i < Number(cipher); i++) {
-
-        gauge_plus += "■";
-      }
-    }
-  }
-
-  useEffect(() => {
-    setGauge(gauge_plus);
-  });
-
-
+  let cipher_number = String(props.value).length;
+  let cipher = Number(String(props.value)[cipher_number - 1]);
+  
   return (
-    <div onChange={gauge_changer()}>
+    <div>
       <ul className='gauge-wrap'>
-        {gauge}
+        <li className={'gauge-box' + ((cipher > 0 || (cipher === 0 && props.value !== 0)) ? " on" : "")}></li>
+        <li className={'gauge-box' + ((cipher > 1 || (cipher === 0 && props.value !== 0)) ? " on" : "")}></li>
+        <li className={'gauge-box' + ((cipher > 2 || (cipher === 0 && props.value !== 0)) ? " on" : "")}></li>
+        <li className={'gauge-box' + ((cipher > 3 || (cipher === 0 && props.value !== 0)) ? " on" : "")}></li>
+        <li className={'gauge-box' + ((cipher > 4 || (cipher === 0 && props.value !== 0)) ? " on" : "")}></li>
+        <li className={'gauge-box' + ((cipher > 5 || (cipher === 0 && props.value !== 0)) ? " on" : "")}></li>
+        <li className={'gauge-box' + ((cipher > 6 || (cipher === 0 && props.value !== 0)) ? " on" : "")}></li>
+        <li className={'gauge-box' + ((cipher > 7 || (cipher === 0 && props.value !== 0)) ? " on" : "")}></li>
+        <li className={'gauge-box' + ((cipher > 8 || (cipher === 0 && props.value !== 0)) ? " on" : "")}></li>
+        <li className={'gauge-box' + ((cipher === 0 && props.value !== 0) ? " on" : "")}></li>
       </ul>
       {props.value}
     </div>
