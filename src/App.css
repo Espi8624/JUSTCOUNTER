@@ -3,19 +3,19 @@
 }
 
 .container {
-  background-color: #39651f;
+  background-color: #b7bc7d;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #f2f2f2;
 }
 
 .container-box {
   background-color: #f2f2f26b;
-  border-radius: 2%;
+  border-radius: 100%;
 
   width: 800px;
   height: 800px;
@@ -25,7 +25,29 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: #fdfdfd;
+  color: #f2f2f2;
+}
+
+.button {
+  margin: 5px 0 5px 0;
+
+  width: 220px;
+  height: 50px;
+  line-height: 50px;
+
+  background-color: #677641;
+
+  border-radius: 8px;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.reset {
+  background-color: #ff0000;
 }
 
 .gauge-wrap{
@@ -44,5 +66,5 @@
 }
 
 .on {
-  background-color: red;
+  background-color: #677641;
 }

@@ -4,9 +4,10 @@ import { useState } from 'react';
 import './App.css';
 
 function CountSpace(props) {
+
   let cipher_number = String(props.value).length;
   let cipher = Number(String(props.value)[cipher_number - 1]);
-  
+
   return (
     <div>
       <ul className='gauge-wrap'>
@@ -46,8 +47,8 @@ function App() {
           <p>
             PUSH THE BUTTON
           </p>
-          <div className='button-click' onClick={click_counter}>CLICK!</div>
-          <div className='button-click' onClick={click_reset}>RESET</div>
+          <div className='button' onClick={click_counter}>CLICK!</div>
+          <div className='button reset' onClick={click_reset}>RESET</div>
         </div>
       </div>
     </div>
